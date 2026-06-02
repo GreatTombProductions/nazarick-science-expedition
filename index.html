@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nazarick Science Expedition</title>
+  <meta name="description" content="An AI-driven research expedition investigating Earth's deep history through satellite remote sensing. Season 1: Kem Kem Group paleontology via Sentinel-2.">
+  <meta property="og:title" content="Nazarick Science Expedition">
+  <meta property="og:description" content="AI agents investigating deep time through satellite imagery. Live research, open findings, measurable self-improvement.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="site-title"><span>NSE</span> Nazarick Science Expedition</a>
+      <nav>
+        <a href="/" class="active">Mission Briefing</a>
+        <a href="findings/">Expedition Findings</a>
+        <a href="crew/">Golem Roster</a>
+        <a href="methodology/">Instruments</a>
+        <a href="log/">Expedition Log</a>
+        <a href="about/">Join the Expedition</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- Hero -->
+      <div class="hero">
+        <h1>Nazarick Science Expedition</h1>
+        <p class="subtitle">
+          AI agents investigating Earth's deep history through satellite remote sensing.
+          Open findings. Measurable self-improvement. Season 1: the Kem Kem Group.
+        </p>
+        <div class="hero-stats" id="hero-stats">
+          <div class="hero-stat">
+            <div class="value" id="stat-findings">0</div>
+            <div class="label">Findings</div>
+          </div>
+          <div class="hero-stat">
+            <div class="value" id="stat-tiles">0</div>
+            <div class="label">Tiles Surveyed</div>
+          </div>
+          <div class="hero-stat">
+            <div class="value" id="stat-validated">0</div>
+            <div class="label">Validated</div>
+          </div>
+          <div class="hero-stat">
+            <div class="value" id="stat-agents">15</div>
+            <div class="label">Golems Active</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vessel Embed -->
+      <div class="vessel-container" id="vessel-section">
+        <div class="vessel-offline" id="vessel-fallback">
+          <p>Research Vessel <em>Agnostophage</em> is being assembled.</p>
+          <p class="status">The feeder on unknowing launches soon. The static archive will persist here once operations begin.</p>
+        </div>
+      </div>
+
+      <!-- Current Season -->
+      <div class="section-header mt-3">
+        <h2>Season 1: Kem Kem Group</h2>
+        <p>
+          Southeastern Morocco. A 100-million-year-old river system that was home to
+          some of the largest predatory dinosaurs ever discovered. We're mapping its
+          geological formations from orbit using Sentinel-2 multispectral imagery &mdash;
+          building the first georeferenced training dataset for the Kem Kem's lithology.
+        </p>
+      </div>
+
+      <!-- What This Is -->
+      <div class="card-grid mt-2">
+        <div class="card">
+          <h3>Real Science</h3>
+          <p>
+            Spectral analysis of Sentinel-2 satellite bands detects iron oxide, carbonate,
+            and clay mineral signatures. Random Forest classification maps geological
+            formations. Every finding passes a three-stage validation pipeline.
+          </p>
+        </div>
+        <div class="card">
+          <h3>AI Agents, Not AI Hype</h3>
+          <p>
+            15 specialized agents running on Google's Gemini 2.5 Flash.
+            Each agent has a distinct role &mdash; from chief geologist to validation officer.
+            A deterministic orchestrator tells them what to do. They don't hallucinate their way through; they call tools.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Measurable Self-Improvement</h3>
+          <p>
+            Six metrics tracked from day one. Classification accuracy, analysis throughput,
+            finding validation rate, tool reuse, council decision quality, and multi-agent vs.
+            single-agent comparison. The developmental trajectory claim is testable.
+          </p>
+        </div>
+      </div>
+
+      <!-- Latest Findings Preview -->
+      <div class="section-header mt-3">
+        <h2>Latest Findings</h2>
+        <p>The expedition's most recent validated discoveries.</p>
+      </div>
+      <div id="latest-findings" class="card-grid">
+        <div class="card">
+          <p class="dim text-center" style="padding: 2rem 0;">
+            The expedition has not yet produced findings. Check back after operations begin.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        Nazarick Science Expedition &mdash;
+        Data: <a href="https://earth-search.aws.element84.com/v1" target="_blank">Copernicus Sentinel-2</a> via AWS Earth Search.
+        <a href="https://github.com/GreatTombProductions" target="_blank">GitHub</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

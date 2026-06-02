@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expedition Log — NSE</title>
+  <meta name="description" content="Chronicle of the Nazarick Science Expedition's research journey.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="../" class="site-title"><span>NSE</span> Nazarick Science Expedition</a>
+      <nav>
+        <a href="../">Mission Briefing</a>
+        <a href="../findings/">Expedition Findings</a>
+        <a href="../crew/">Golem Roster</a>
+        <a href="../methodology/">Instruments</a>
+        <a href="./" class="active">Expedition Log</a>
+        <a href="../about/">Join the Expedition</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Expedition Log</h2>
+        <p>
+          A reverse-chronological record of the expedition's operations.
+          Weekly synthesis entries summarize findings. Session entries capture
+          day-to-day research activity.
+        </p>
+      </div>
+
+      <div id="log-entries">
+
+        <div class="log-entry">
+          <div class="date">2026-06-02 &mdash; Assembly Phase</div>
+          <div class="content">
+            <strong>The expedition is being assembled.</strong>
+            Phase 1 construction has begun. The orchestrator foundation is under construction.
+            Identity documents for 15 expedition golems are being drafted.
+            Data access verified &mdash; all three Sentinel-2 endpoints respond from the
+            deployment platform. The static site (this website) is being built.
+            Science begins when the infrastructure is ready.
+          </div>
+        </div>
+
+        <div class="log-entry">
+          <div class="date">2026-06-02 &mdash; Phase 0 Complete</div>
+          <div class="content">
+            <strong>Intelligence brief assembled.</strong>
+            10 Phase 0 deliverables synthesized into the campaign's constraint bundle.
+            Key findings: Sentinel-2 access verified from Hetzner (46 tiles/month, 0-0.8%
+            cloud cover for Kem Kem). DSV4-Flash substrate characterized (100% tool-calling
+            compliance, 58.3% baseline confabulation mitigated to 0% with non-access framing).
+            Published classification accuracy in analogous Moroccan terrain: 76-93%.
+            No published remote sensing study specifically targets the Kem Kem Group.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        Nazarick Science Expedition &mdash;
+        Data: <a href="https://earth-search.aws.element84.com/v1" target="_blank">Copernicus Sentinel-2</a> via AWS Earth Search.
+        <a href="https://github.com/GreatTombProductions" target="_blank">GitHub</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

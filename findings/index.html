@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expedition Findings — NSE</title>
+  <meta name="description" content="Validated findings from the Nazarick Science Expedition's satellite remote sensing research.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="../" class="site-title"><span>NSE</span> Nazarick Science Expedition</a>
+      <nav>
+        <a href="../">Mission Briefing</a>
+        <a href="./" class="active">Expedition Findings</a>
+        <a href="../crew/">Golem Roster</a>
+        <a href="../methodology/">Instruments</a>
+        <a href="../log/">Expedition Log</a>
+        <a href="../about/">Join the Expedition</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Expedition Findings</h2>
+        <p>
+          Every finding passes a three-stage validation pipeline: structural check,
+          cross-reference validation, and library gate. Quality tiers indicate confidence.
+        </p>
+      </div>
+
+      <!-- Search -->
+      <div class="search-section">
+        <div class="search-bar">
+          <input type="text" id="finding-search" placeholder="Search findings by claim, location, or method..." autocomplete="off">
+        </div>
+        <div class="result-count" id="result-count"></div>
+
+        <!-- Filters -->
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
+          <button class="filter-btn active" data-tier="all">All</button>
+          <button class="filter-btn" data-tier="strong"><span class="tier tier-strong">Strong</span></button>
+          <button class="filter-btn" data-tier="preliminary"><span class="tier tier-preliminary">Preliminary</span></button>
+          <button class="filter-btn" data-tier="novel"><span class="tier tier-novel">Novel</span></button>
+        </div>
+      </div>
+
+      <!-- Findings Grid -->
+      <div id="findings-grid" class="card-grid">
+        <div class="card">
+          <p class="dim text-center" style="padding: 2rem 0;">
+            No findings yet. The expedition will populate this page as validated discoveries are made.
+          </p>
+        </div>
+      </div>
+
+      <!-- Finding Detail Modal -->
+      <div id="finding-detail" class="hidden">
+        <div class="card" style="max-width: 700px; margin: 2rem auto;">
+          <div id="detail-content"></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        Nazarick Science Expedition &mdash;
+        Data: <a href="https://earth-search.aws.element84.com/v1" target="_blank">Copernicus Sentinel-2</a> via AWS Earth Search.
+        <a href="https://github.com/GreatTombProductions" target="_blank">GitHub</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/findings.js"></script>
+  <style>
+    .filter-btn {
+      padding: 0.3rem 0.7rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--accent);
+      color: var(--text-primary);
+    }
+  </style>
+</body>
+</html>
