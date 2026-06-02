@@ -19,7 +19,7 @@ jobs:
           pip install ruff
       - name: Lint with ruff
         run: |
-          ruff check harness/ tools/ --select E,W,F --ignore E501
+          ruff check harness/ tools/ --select E,W,F --ignore E501,E741
 
   test:
     runs-on: ubuntu-latest
