@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join the Expedition — NSE</title>
+  <meta name="description" content="What the Nazarick Science Expedition is, how it works, and how to follow along.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="../" class="site-title"><span>NSE</span> Nazarick Science Expedition</a>
+      <nav>
+        <a href="../">Mission Briefing</a>
+        <a href="../findings/">Expedition Findings</a>
+        <a href="../crew/">Golem Roster</a>
+        <a href="../methodology/">Instruments</a>
+        <a href="../log/">Expedition Log</a>
+        <a href="./" class="active">Join the Expedition</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Join the Expedition</h2>
+        <p>
+          What this is, why it exists, and how to participate.
+        </p>
+      </div>
+
+      <div class="card mt-2">
+        <h3>What Is This?</h3>
+        <p>
+          The Nazarick Science Expedition is an AI-driven research project investigating
+          Earth's deep geological history using satellite remote sensing. Fifteen AI agents
+          &mdash; each with a specialized role &mdash; work together under a deterministic
+          orchestrator to analyze Sentinel-2 multispectral imagery.
+        </p>
+        <p class="mt-1">
+          Season 1 focuses on the Kem Kem Group in southeastern Morocco: a 100-million-year-old
+          river ecosystem that was home to Spinosaurus, Carcharodontosaurus, and other
+          extraordinary predators. We're building the first georeferenced training dataset
+          linking satellite pixel locations to verified Kem Kem lithology.
+        </p>
+      </div>
+
+      <div class="card mt-2">
+        <h3>How Does It Work?</h3>
+        <p>
+          A Python orchestrator manages the research cycle. It tells agents what to analyze,
+          assembles their context, captures their findings, and validates results through a
+          three-stage pipeline. The agents run on Google's Gemini 2.5 Flash and interact
+          exclusively through tool calls &mdash; no free-form image interpretation.
+        </p>
+        <p class="mt-1">
+          The architecture is designed for measurable self-improvement. Six metrics track
+          whether the system actually gets better at science over time. The multi-agent
+          comparison (M6) tests whether 15 specialized agents produce better science than
+          one agent with equivalent context.
+        </p>
+      </div>
+
+      <div class="card mt-2">
+        <h3>Why Does It Exist?</h3>
+        <p>
+          Three reasons, in order of importance:
+        </p>
+        <ol style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+          <li style="margin-bottom: 0.5rem;">
+            <strong style="color: var(--text-primary);">To produce real science.</strong>
+            No published remote sensing study specifically targets the Kem Kem Group.
+            The georeferenced training dataset and lithological maps are genuine
+            contributions to Earth science.
+          </li>
+          <li style="margin-bottom: 0.5rem;">
+            <strong style="color: var(--text-primary);">To test whether multi-agent AI improves.</strong>
+            Does a system of specialized agents, running over weeks and months, actually
+            get better at its task? This is an empirical question with pre-registered
+            predictions. The expedition is designed to answer it.
+          </li>
+          <li>
+            <strong style="color: var(--text-primary);">To be interesting.</strong>
+            AI research as live entertainment. Open findings. Community governance via
+            polls. The expedition log as a narrative you can follow. Science that's
+            accessible, not locked behind paywalls.
+          </li>
+        </ol>
+      </div>
+
+      <div class="card mt-2">
+        <h3>How to Follow Along</h3>
+        <p>
+          The expedition's findings, methodology, and progress are all public on this site.
+          The <a href="../findings/">Expedition Findings</a> page shows validated discoveries.
+          The <a href="../log/">Expedition Log</a> chronicles operations. The
+          <a href="../methodology/">Instruments</a> page documents the science.
+        </p>
+        <p class="mt-1">
+          Source code and data pipelines are on
+          <a href="https://github.com/GreatTombProductions" target="_blank">GitHub</a>.
+        </p>
+      </div>
+
+      <div class="card mt-2">
+        <h3>Data Attribution</h3>
+        <p>
+          Sentinel-2 data provided by the European Space Agency's Copernicus programme,
+          accessed via the
+          <a href="https://earth-search.aws.element84.com/v1" target="_blank">AWS Earth Search</a>
+          STAC API. Geological reference data from Ibrahim &amp; Sereno (2020),
+          the Paleobiology Database, and USGS Spectral Library v7.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        Nazarick Science Expedition &mdash;
+        Data: <a href="https://earth-search.aws.element84.com/v1" target="_blank">Copernicus Sentinel-2</a> via AWS Earth Search.
+        <a href="https://github.com/GreatTombProductions" target="_blank">GitHub</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

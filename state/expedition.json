@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "vessel": "sarcophagus",
+  "season": {
+    "id": "kem-kem-s1",
+    "name": "Kem Kem Group — Season 1",
+    "domain": "geology",
+    "description": "North African paleontology via Sentinel-2 remote sensing. First georeferenced lithological training dataset for the Kem Kem Group.",
+    "bbox": [-3.5, 31.5, -2.5, 32.5],
+    "data_source": "aws-earth-search",
+    "classifier": "random-forest",
+    "status": "building",
+    "started": null,
+    "metrics": {
+      "m1_classification_accuracy": null,
+      "m2_analysis_throughput": null,
+      "m3_finding_validation_rate": null,
+      "m4_tool_reuse_rate": null,
+      "m5_council_decision_quality": null,
+      "m6_multi_vs_single": null
+    }
+  },
+  "hypotheses": [],
+  "stage_contracts": {
+    "acquire": {
+      "input": "bbox + date range + cloud cover threshold",
+      "output": "tile metadata added to territory_tracker",
+      "tools_required": ["stac_search"],
+      "turn_budget": 1
+    },
+    "analyze": {
+      "input": "pending tile from territory_tracker",
+      "output": "spectral indices + classification + findings",
+      "tools_required": ["tile_reader", "spectral_indices", "classifier"],
+      "turn_budget": 1
+    },
+    "validate": {
+      "input": "unvalidated finding from journal",
+      "output": "quality tier (STRONG/PRELIMINARY/NEGATIVE/TECHNICAL)",
+      "tools_required": ["validation_pipeline", "reference_data"],
+      "turn_budget": 1
+    },
+    "synthesize": {
+      "input": "week's validated findings + evolution store",
+      "output": "weekly synthesis + library updates",
+      "tools_required": ["evolution_store", "journal", "library_schema"],
+      "turn_budget": 1
+    },
+    "maintain": {
+      "input": "tool registry + health metrics",
+      "output": "health report + any auto-fixes applied",
+      "tools_required": ["tool_registry", "health_canary", "auto_fix"],
+      "turn_budget": 1
+    }
+  },
+  "agent_assignments": {
+    "acquire": ["scout"],
+    "analyze": ["chief-geologist", "data-analyst", "field-surveyor-alpha", "field-surveyor-beta"],
+    "validate": ["validation-officer"],
+    "synthesize": ["research-librarian"],
+    "maintain": ["pipeline-engineer"]
+  }
+}

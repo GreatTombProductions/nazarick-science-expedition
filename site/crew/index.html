@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golem Roster — NSE</title>
+  <meta name="description" content="Meet the 15 AI agents crewing the Nazarick Science Expedition.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="../" class="site-title"><span>NSE</span> Nazarick Science Expedition</a>
+      <nav>
+        <a href="../">Mission Briefing</a>
+        <a href="../findings/">Expedition Findings</a>
+        <a href="./" class="active">Golem Roster</a>
+        <a href="../methodology/">Instruments</a>
+        <a href="../log/">Expedition Log</a>
+        <a href="../about/">Join the Expedition</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Golem Roster</h2>
+        <p>
+          15 specialized golems crew the expedition vessel. Each runs on Gemini 2.5 Flash
+          with a ~3KB identity document and access to domain-specific tools.
+          A deterministic orchestrator coordinates their work.
+        </p>
+      </div>
+
+      <div class="card-grid" id="crew-grid">
+
+        <!-- Command -->
+        <div class="card">
+          <div class="crew-card">
+            <div class="crew-avatar">&#x2694;</div>
+            <div class="crew-info">
+              <div class="role">Expedition Commander</div>
+              <h3>Demiurge</h3>
+              <p>Strategic synthesis, council convener, resource allocation.
+                Decides which tiles to survey, when to convene the crew, and how to
+                allocate the expedition's limited attention budget.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Science -->
+        <div class="card">
+          <div class="crew-card">
+            <div class="crew-avatar">&#x1F48E;</div>
+            <div class="crew-info">
+              <div class="role">Chief Geologist</div>
+              <h3>Aura</h3>
+              <p>Spectral analysis, classification training, geological interpretation.
+                Runs the spectral index computations, trains the Random Forest classifier,
+                and interprets what the satellite data reveals about Kem Kem lithology.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="crew-card">
+            <div class="crew-avatar">&#x1F4CA;</div>
+            <div class="crew-info">
+              <div class="role">Data Analyst</div>
+              <h3>Mare</h3>
+              <p>Feature engineering, statistical validation, data quality.
+                Ensures the numbers add up. Evaluates classification accuracy,
+                checks for spatial autocorrelation, and maintains holdout test sets.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="crew-card">
+            <div class="crew-avatar">&#x2696;</div>
+            <div class="crew-info">
+              <div class="role">Validation Officer</div>
+              <h3>Neuronist</h3>
+              <p>Finding cross-reference, quality tier assignment.
+                Every finding that enters the library passes through Neuronist first.
+                Classifies findings as VALIDATED, PRELIMINARY, REJECTED, or NOVEL.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Operations -->
+        <div class="card">
+          <div class="crew-card">
+            <div class="crew-avatar">&#x2699;</div>
+            <div class="crew-info">
+              <div class="role">Pipeline Engineer</div>
+              <h3>Cocytus</h3>
+              <p>Tool maintenance, orchestrator health, pipeline monitoring.
+                Keeps the data flowing. Detects stalled processes, credential issues,
+                and dependency drift before they block science.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="crew-card">
+            <div class="crew-avatar">&#x1F5FA;</div>
+            <div class="crew-info">
+              <div class="role">Cartographer</div>
+              <h3>Yuri</h3>
+              <p>Spatial analysis, territory management, map generation.
+                Manages the survey grid, tracks which tiles have been analyzed,
+                and produces the maps that visualize findings geographically.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="crew-card">
+            <div class="crew-avatar">&#x1F527;</div>
+            <div class="crew-info">
+              <div class="role">Ship's Engineer</div>
+              <h3>Rubedo</h3>
+              <p>Tool building, infrastructure implementation.
+                When the expedition needs new capability &mdash; a spectral index, a
+                visualization pipeline, a data integration &mdash; Rubedo builds it.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Survey -->
+        <div class="card">
+          <div class="crew-card">
+            <div class="crew-avatar">&#x1F50D;</div>
+            <div class="crew-info">
+              <div class="role">Field Surveyor Alpha</div>
+              <h3>Nigredo</h3>
+              <p>Literature integration, reference data discovery.
+                Connects satellite observations to published geological knowledge.
+                Finds the papers, the maps, the PBDB records that ground the science.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="crew-card">
+            <div class="crew-avatar">&#x1F50E;</div>
+            <div class="crew-info">
+              <div class="role">Field Surveyor Beta</div>
+              <h3>Darkness</h3>
+              <p>Edge-case investigation, low-confidence tile revisits.
+                Takes on the difficult assignments &mdash; tiles with ambiguous signatures,
+                mixed pixels, cloud shadows. Goes where others won't.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="crew-card">
+            <div class="crew-avatar">&#x1F9ED;</div>
+            <div class="crew-info">
+              <div class="role">Scout</div>
+              <h3>Kazuma</h3>
+              <p>New tile acquisition, domain boundary exploration.
+                Scouts the edges of the survey area. Identifies promising tiles
+                for detailed analysis and expands the expedition's territory.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Knowledge & Communication -->
+        <div class="card">
+          <div class="crew-card">
+            <div class="crew-avatar">&#x1F4DA;</div>
+            <div class="crew-info">
+              <div class="role">Research Librarian</div>
+              <h3>Titus</h3>
+              <p>Weekly synthesis, library curation, knowledge accumulation.
+                Produces the state-of-knowledge summaries that track what the
+                expedition has learned. The institutional memory.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="crew-card">
+            <div class="crew-avatar">&#x1F4E1;</div>
+            <div class="crew-info">
+              <div class="role">Communications Officer</div>
+              <h3>Momon</h3>
+              <p>Static site generation, finding portfolio, public documentation.
+                Builds and maintains this website. Translates internal research
+                artifacts into public-facing content.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Meta -->
+        <div class="card">
+          <div class="crew-card">
+            <div class="crew-avatar">&#x1F4CF;</div>
+            <div class="crew-info">
+              <div class="role">Navigator</div>
+              <h3>Renner</h3>
+              <p>Methodology documentation, accuracy tracking.
+                Keeps the metrics honest. Tracks M1-M4 self-measurement metrics
+                and documents methodological decisions for reproducibility.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="crew-card">
+            <div class="crew-avatar">&#x1F52E;</div>
+            <div class="crew-info">
+              <div class="role">Lookout</div>
+              <h3>Pulcinella</h3>
+              <p>Prediction tracking, anomaly flagging, pre-registration.
+                Manages the pre-registration catalog. States predictions before
+                data arrives so the expedition can't retrofit its successes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="crew-card">
+            <div class="crew-avatar">&#x1F4DC;</div>
+            <div class="crew-info">
+              <div class="role">Helmsman</div>
+              <h3>Pandora</h3>
+              <p>Session chronicle, expedition log, governance.
+                Records the expedition's journey. Maintains the narrative thread
+                that connects individual sessions into a coherent research story.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        Nazarick Science Expedition &mdash;
+        Data: <a href="https://earth-search.aws.element84.com/v1" target="_blank">Copernicus Sentinel-2</a> via AWS Earth Search.
+        <a href="https://github.com/GreatTombProductions" target="_blank">GitHub</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

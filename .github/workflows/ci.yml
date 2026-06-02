@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          pip install ruff
+      - name: Lint with ruff
+        run: |
+          ruff check harness/ tools/ --select E,W,F --ignore E501
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          pip install numpy scikit-learn
+      - name: Verify imports
+        run: |
+          cd harness && python3 -c "
+          from orchestrator import Orchestrator
+          from checkpoint import CheckpointManager
+          from strip_thinking import strip_thinking_tags
+          from output_parser import parse_agent_output
+          from metrics_collector import MetricsCollector
+          print('All harness imports OK')
+          "
+      - name: Verify tools imports
+        run: |
+          cd tools && python3 -c "
+          from spectral_indices import compute_all
+          from classifier import LithologyClassifier
+          print('All tools imports OK')
+          "
+      - name: Run metrics CLI
+        run: |
+          cd harness && python3 metrics_collector.py summary
+      - name: Structural checks
+        run: |
+          # Verify expected files exist
+          test -f harness/orchestrator.py
+          test -f harness/metrics_collector.py
+          test -f harness/validation_pipeline.py
+          test -f tools/classifier.py
+          test -f tools/spectral_indices.py
+          test -f docs/intelligence-brief.md
+          test -f metrics/README.md
+          echo "All structural checks passed"

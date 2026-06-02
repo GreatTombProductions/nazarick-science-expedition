@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "updated": null,
+  "agents": {
+    "expedition-commander": {
+      "id": "expedition-commander",
+      "role": "Expedition Commander",
+      "overlord_mapping": "demiurge-expedition",
+      "status": "inactive",
+      "current_task": null,
+      "last_heartbeat": null,
+      "session_count": 0,
+      "tools": ["priority_queue", "expedition_json"]
+    },
+    "chief-geologist": {
+      "id": "chief-geologist",
+      "role": "Chief Geologist",
+      "overlord_mapping": "aura-expedition",
+      "status": "inactive",
+      "current_task": null,
+      "last_heartbeat": null,
+      "session_count": 0,
+      "tools": ["spectral_indices", "classifier", "tile_reader"]
+    },
+    "data-analyst": {
+      "id": "data-analyst",
+      "role": "Data Analyst",
+      "overlord_mapping": "mare-expedition",
+      "status": "inactive",
+      "current_task": null,
+      "last_heartbeat": null,
+      "session_count": 0,
+      "tools": ["stac_search", "quality_metrics"]
+    },
+    "pipeline-engineer": {
+      "id": "pipeline-engineer",
+      "role": "Pipeline Engineer",
+      "overlord_mapping": "cocytus-expedition",
+      "status": "inactive",
+      "current_task": null,
+      "last_heartbeat": null,
+      "session_count": 0,
+      "tools": ["tool_registry", "health_canary", "auto_fix"]
+    },
+    "cartographer": {
+      "id": "cartographer",
+      "role": "Cartographer",
+      "overlord_mapping": "yuri-expedition",
+      "status": "inactive",
+      "current_task": null,
+      "last_heartbeat": null,
+      "session_count": 0,
+      "tools": ["territory_tracker", "visualization"]
+    },
+    "validation-officer": {
+      "id": "validation-officer",
+      "role": "Validation Officer",
+      "overlord_mapping": "neuronist-expedition",
+      "status": "inactive",
+      "current_task": null,
+      "last_heartbeat": null,
+      "session_count": 0,
+      "tools": ["validation_pipeline", "reference_data"]
+    },
+    "research-librarian": {
+      "id": "research-librarian",
+      "role": "Research Librarian",
+      "overlord_mapping": "titus-expedition",
+      "status": "inactive",
+      "current_task": null,
+      "last_heartbeat": null,
+      "session_count": 0,
+      "tools": ["evolution_store", "journal", "library_schema"]
+    },
+    "field-surveyor-alpha": {
+      "id": "field-surveyor-alpha",
+      "role": "Field Surveyor Alpha",
+      "overlord_mapping": "nigredo-expedition",
+      "status": "inactive",
+      "current_task": null,
+      "last_heartbeat": null,
+      "session_count": 0,
+      "tools": ["spectral_indices", "pbdb_queries"]
+    },
+    "field-surveyor-beta": {
+      "id": "field-surveyor-beta",
+      "role": "Field Surveyor Beta",
+      "overlord_mapping": "darkness-expedition",
+      "status": "inactive",
+      "current_task": null,
+      "last_heartbeat": null,
+      "session_count": 0,
+      "tools": ["spectral_indices", "tile_reader"]
+    },
+    "scout": {
+      "id": "scout",
+      "role": "Scout",
+      "overlord_mapping": "kazuma-expedition",
+      "status": "inactive",
+      "current_task": null,
+      "last_heartbeat": null,
+      "session_count": 0,
+      "tools": ["stac_search", "territory_tracker"]
+    },
+    "communications-officer": {
+      "id": "communications-officer",
+      "role": "Communications Officer",
+      "overlord_mapping": "momon-expedition",
+      "status": "inactive",
+      "current_task": null,
+      "last_heartbeat": null,
+      "session_count": 0,
+      "tools": ["deploy_script", "finding_manifest"]
+    },
+    "ships-engineer": {
+      "id": "ships-engineer",
+      "role": "Ship's Engineer",
+      "overlord_mapping": "rubedo-expedition",
+      "status": "inactive",
+      "current_task": null,
+      "last_heartbeat": null,
+      "session_count": 0,
+      "tools": ["all"]
+    },
+    "navigator": {
+      "id": "navigator",
+      "role": "Navigator",
+      "overlord_mapping": "renner-expedition",
+      "status": "inactive",
+      "current_task": null,
+      "last_heartbeat": null,
+      "session_count": 0,
+      "tools": ["metrics_collection"]
+    },
+    "lookout": {
+      "id": "lookout",
+      "role": "Lookout",
+      "overlord_mapping": "pulcinella-expedition",
+      "status": "inactive",
+      "current_task": null,
+      "last_heartbeat": null,
+      "session_count": 0,
+      "tools": ["pre_registration_catalog", "m6_baseline"]
+    },
+    "helmsman": {
+      "id": "helmsman",
+      "role": "Helmsman",
+      "overlord_mapping": "pandora-expedition",
+      "status": "inactive",
+      "current_task": null,
+      "last_heartbeat": null,
+      "session_count": 0,
+      "tools": ["journal", "expedition_log"]
+    }
+  }
+}

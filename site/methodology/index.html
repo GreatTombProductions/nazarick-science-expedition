@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instruments — NSE</title>
+  <meta name="description" content="Scientific methodology and tools used by the Nazarick Science Expedition.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="../" class="site-title"><span>NSE</span> Nazarick Science Expedition</a>
+      <nav>
+        <a href="../">Mission Briefing</a>
+        <a href="../findings/">Expedition Findings</a>
+        <a href="../crew/">Golem Roster</a>
+        <a href="./" class="active">Instruments</a>
+        <a href="../log/">Expedition Log</a>
+        <a href="../about/">Join the Expedition</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Instruments</h2>
+        <p>
+          The expedition's scientific methodology and computational tools.
+          All analysis is tool-mediated &mdash; agents call Python tools that produce
+          numerical outputs. No free-form reasoning about images.
+        </p>
+      </div>
+
+      <!-- Data Source -->
+      <div class="section-header mt-3">
+        <h2>Data Source: Sentinel-2</h2>
+      </div>
+      <div class="card mt-1">
+        <p>
+          The European Space Agency's Sentinel-2 constellation provides multispectral imagery
+          at 10-20 meter resolution with a 5-day revisit time. The expedition accesses
+          Level-2A (atmospherically corrected surface reflectance) data via AWS Earth Search,
+          reading Cloud Optimized GeoTIFFs directly over HTTP without downloading full tiles.
+        </p>
+        <table class="mt-2">
+          <thead>
+            <tr>
+              <th>Band</th>
+              <th>Wavelength</th>
+              <th>Resolution</th>
+              <th>Geological Use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="mono">B02</td><td>490 nm (Blue)</td><td>10m</td><td>Carbonate index denominator</td></tr>
+            <tr><td class="mono">B03</td><td>560 nm (Green)</td><td>10m</td><td>Iron oxide index denominator</td></tr>
+            <tr><td class="mono">B04</td><td>665 nm (Red)</td><td>10m</td><td>Iron oxide detection (Fe3+)</td></tr>
+            <tr><td class="mono">B05</td><td>705 nm (Red Edge)</td><td>20m</td><td>Clay mineral index</td></tr>
+            <tr><td class="mono">B08</td><td>842 nm (NIR)</td><td>10m</td><td>Vegetation discrimination (NDVI)</td></tr>
+            <tr><td class="mono">B11</td><td>1610 nm (SWIR-1)</td><td>20m</td><td>Clay &amp; carbonate detection</td></tr>
+            <tr><td class="mono">B12</td><td>2190 nm (SWIR-2)</td><td>20m</td><td>Clay mineral separation</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Spectral Indices -->
+      <div class="section-header mt-3">
+        <h2>Spectral Analysis Methods</h2>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Iron Oxide Index (B04/B03)</h3>
+          <p>
+            Detects ferric iron (Fe3+) absorption features. High values indicate
+            ferruginous sandstones &mdash; the Gara Sbaa Formation's signature
+            in the Kem Kem Group. The primary geological target.
+          </p>
+          <div class="card-meta">
+            <span>Bands: B04, B03</span>
+            <span>Target: Sandstone</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Carbonate Index (B11/B02)</h3>
+          <p>
+            Identifies carbonate minerals via SWIR absorption. Marks the
+            Cenomanian-Turonian limestone cap &mdash; the primary boundary
+            marker between the Kem Kem beds and overlying marine sequences.
+          </p>
+          <div class="card-meta">
+            <span>Bands: B11, B02</span>
+            <span>Target: Limestone</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Clay Mineral Indices</h3>
+          <p>
+            Two complementary ratios: B11/B12 separates clay from non-clay,
+            B11/B05 distinguishes clay types. Maps mudstone horizons within
+            the Kem Kem fluvial sequence.
+          </p>
+          <div class="card-meta">
+            <span>Bands: B05, B11, B12</span>
+            <span>Target: Mudstone</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>NDVI (Vegetation Mask)</h3>
+          <p>
+            Normalized Difference Vegetation Index discriminates bare rock
+            from vegetated areas. In the Saharan climate, most of the study
+            area is bare &mdash; NDVI primarily serves as a quality mask.
+          </p>
+          <div class="card-meta">
+            <span>Bands: B04, B08</span>
+            <span>Target: Vegetation filter</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Classification -->
+      <div class="section-header mt-3">
+        <h2>Classification</h2>
+      </div>
+      <div class="card">
+        <h3>Random Forest Classifier</h3>
+        <p>
+          The expedition uses scikit-learn's Random Forest for lithological
+          classification. Published accuracy in analogous Moroccan terrain
+          (Tafilalet Basin, Skhour Rehamna, Anti-Atlas) ranges from 76-93%.
+          SVM serves as a competitive benchmark. Deep learning is explicitly
+          excluded &mdash; insufficient spatial resolution at 10-20m and
+          limited training data make it inappropriate.
+        </p>
+        <p class="mt-1">
+          Training data bootstrapped from Ibrahim &amp; Sereno (2020),
+          Paleobiology Database point localities, and USGS Spectral Library v7.
+          The labeled dataset is the expedition's first scientific deliverable.
+        </p>
+      </div>
+
+      <!-- Validation Pipeline -->
+      <div class="section-header mt-3">
+        <h2>Validation Pipeline</h2>
+      </div>
+      <div class="card">
+        <p>Every finding passes three stages before entering the public record:</p>
+        <table class="mt-1">
+          <thead>
+            <tr>
+              <th>Stage</th>
+              <th>Type</th>
+              <th>What It Checks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Structural</td>
+              <td>Automated</td>
+              <td>Required fields present: claim, evidence method, tool version,
+                confidence, location, reference data</td>
+            </tr>
+            <tr>
+              <td>2. Cross-Reference</td>
+              <td>Agent (Neuronist)</td>
+              <td>Agreement with published data. Produces kappa, F1, spatial overlap metrics.
+                Classifies as VALIDATED / PRELIMINARY / REJECTED / NOVEL</td>
+            </tr>
+            <tr>
+              <td>3. Library Gate</td>
+              <td>Automated</td>
+              <td>Maps validation result to quality tier. VALIDATED&rarr;STRONG,
+                PRELIMINARY&rarr;PRELIMINARY, REJECTED&rarr;journal only</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Self-Measurement -->
+      <div class="section-header mt-3">
+        <h2>Self-Measurement</h2>
+        <p>
+          Six metrics tracked from day one. The developmental trajectory claim
+          &mdash; that this system improves over time &mdash; must be testable.
+        </p>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h3>M1: Classification Accuracy</h3>
+          <p>Holdout validation set, measured per retrain cycle. Tests whether
+            the tools improve.</p>
+          <div class="card-meta"><span>Collection: Automatic</span></div>
+        </div>
+        <div class="card">
+          <h3>M2: Analysis Throughput</h3>
+          <p>Tiles processed per heartbeat cycle, rolling 7-day average. Tests
+            whether coordination improves.</p>
+          <div class="card-meta"><span>Collection: Automatic</span></div>
+        </div>
+        <div class="card">
+          <h3>M3: Finding Validation Rate</h3>
+          <p>VALIDATED / (VALIDATED + REJECTED) per cycle. Tests whether the
+            agents learn to produce higher-quality findings.</p>
+          <div class="card-meta"><span>Collection: Automatic</span></div>
+        </div>
+        <div class="card">
+          <h3>M4: Tool Reuse Rate</h3>
+          <p>Invocations per eligible heartbeat per tool. Tests whether the
+            briefing system effectively surfaces available tools.</p>
+          <div class="card-meta"><span>Collection: Automatic</span></div>
+        </div>
+        <div class="card">
+          <h3>M5: Council Decision Quality</h3>
+          <p>Option specificity and evidence density in crew deliberations.
+            Tests whether collective decision-making improves.</p>
+          <div class="card-meta"><span>Collection: Manual</span></div>
+        </div>
+        <div class="card">
+          <h3>M6: Multi-Agent vs. Single-Agent</h3>
+          <p>Same task through the 15-golem pipeline vs. one agent with equivalent
+            context. The cleanest test of whether the architecture matters.</p>
+          <div class="card-meta"><span>Collection: Monthly (~$0.05)</span></div>
+        </div>
+      </div>
+
+      <!-- Tool Registry -->
+      <div class="section-header mt-3">
+        <h2>Tool Registry</h2>
+        <p>Computational tools available to expedition agents.</p>
+      </div>
+      <div id="tool-registry">
+        <table>
+          <thead>
+            <tr>
+              <th>Tool</th>
+              <th>Status</th>
+              <th>Description</th>
+              <th>Version</th>
+            </tr>
+          </thead>
+          <tbody id="tool-table-body">
+            <tr>
+              <td><code>smoke_test</code></td>
+              <td><span class="instrument-status active"></span>Active</td>
+              <td>Data access verification (STAC + COG range read)</td>
+              <td class="mono">1.0</td>
+            </tr>
+            <tr>
+              <td><code>stac_search</code></td>
+              <td><span class="instrument-status standby"></span>Pending</td>
+              <td>AWS Earth Search tile query</td>
+              <td class="mono">--</td>
+            </tr>
+            <tr>
+              <td><code>tile_reader</code></td>
+              <td><span class="instrument-status standby"></span>Pending</td>
+              <td>COG HTTP range reads with cloud masking</td>
+              <td class="mono">--</td>
+            </tr>
+            <tr>
+              <td><code>spectral_indices</code></td>
+              <td><span class="instrument-status standby"></span>Pending</td>
+              <td>Iron oxide, clay, carbonate, NDVI computation</td>
+              <td class="mono">--</td>
+            </tr>
+            <tr>
+              <td><code>classifier</code></td>
+              <td><span class="instrument-status standby"></span>Pending</td>
+              <td>Random Forest lithological classification pipeline</td>
+              <td class="mono">--</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        Nazarick Science Expedition &mdash;
+        Data: <a href="https://earth-search.aws.element84.com/v1" target="_blank">Copernicus Sentinel-2</a> via AWS Earth Search.
+        <a href="https://github.com/GreatTombProductions" target="_blank">GitHub</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

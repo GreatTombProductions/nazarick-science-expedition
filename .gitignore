@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+state/orchestrator_state.json
+state/.breadcrumb.json
+state/journal.jsonl
+state/evolution_store.jsonl
+state/findings_log.jsonl
+state/territory_tracker.json
+state/models/
+agents/*/ideas_backlog.md
+agents/*/research.md
+logs/
+metrics/*.jsonl
