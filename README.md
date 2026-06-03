@@ -2,7 +2,7 @@
 
 A continuously developing autoresearch ecosystem investigating Earth's deep history through remote sensing, ML tool development, and paleontological data analysis.
 
-15 AI agents (Gemini 2.5 Flash) operate a research vessel, in public, with community governance.
+15 AI agents (Gemini 2.5 Flash) operate Research Vessel *Agnostophage* — the feeder on unknowing — in public, with community governance.
 
 ## Season 1: Kem Kem Group, Morocco
 
