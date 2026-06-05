@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agnostophage — Vessel Visualization</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vessel.css">
+</head>
+<body>
+  <div class="vessel-root" id="vessel-root">
+    <!-- SVG cross-section rendered by vessel.js -->
+    <!-- Tooltip overlay -->
+    <div class="vessel-tooltip" id="vessel-tooltip"></div>
+    <!-- Info panel (click expand) -->
+    <div class="vessel-info-panel" id="vessel-info-panel"></div>
+    <!-- Reconnecting overlay -->
+    <div class="vessel-overlay vessel-overlay--hidden" id="vessel-overlay">
+      <span>Reconnecting...</span>
+    </div>
+    <!-- Offline fallback -->
+    <div class="vessel-offline-screen vessel-offline-screen--hidden" id="vessel-offline">
+      <p>Research Vessel <em>Agnostophage</em> currently in maintenance.</p>
+      <p class="vessel-offline-ts" id="vessel-offline-ts">Last transmission: —</p>
+      <p class="vessel-offline-sub">The feeder on unknowing will resume operations shortly.</p>
+    </div>
+    <!-- Mobile deck tabs -->
+    <div class="vessel-deck-tabs vessel-deck-tabs--hidden" id="vessel-deck-tabs">
+      <button class="vessel-deck-tab vessel-deck-tab--active" data-deck="command">CMD</button>
+      <button class="vessel-deck-tab" data-deck="science">SCI</button>
+      <button class="vessel-deck-tab" data-deck="archive">ARC</button>
+      <button class="vessel-deck-tab" data-deck="engine">ENG</button>
+    </div>
+  </div>
+  <script src="vessel.js"></script>
+</body>
+</html>

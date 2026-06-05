@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <!-- Simplified Morocco coastline for tile inset -->
+  <polyline
+    points="100,3 88,7 74,14 56,14 42,18 22,19 12,25 12,33 10,37 10,41 -8,45 -10,45 -8,52 -2,55 -2,60 -18,63 -30,68 -30,55 -24,43 -10,35 2,31 12,23 24,14 38,4 56,0 100,3"
+    fill="none"
+    stroke="#2a2a3a"
+    stroke-width="1"
+  />
+</svg>

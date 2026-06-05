@@ -1,0 +1,446 @@
+/* Vessel Visualization — Scoped Styles
+ * FILE_TRAJECTORY: load-bearing
+ * All classes prefixed .vessel-* to avoid iframe CSS bleed.
+ * Palette inherited from parent site CSS variables. */
+
+:root {
+  --vessel-bg-primary: #0a0a0f;
+  --vessel-bg-secondary: #12121a;
+  --vessel-bg-card: #1a1a25;
+  --vessel-bg-card-hover: #22222f;
+  --vessel-border: #2a2a3a;
+  --vessel-border-accent: #3d2a5c;
+  --vessel-text-primary: #d0d0dd;
+  --vessel-text-secondary: #8888a0;
+  --vessel-text-dim: #555568;
+  --vessel-accent: #8b5cf6;
+  --vessel-accent-dim: #6d3fd4;
+  --vessel-accent-glow: rgba(139, 92, 246, 0.15);
+  --vessel-strong: #22c55e;
+  --vessel-strong-dim: rgba(34, 197, 94, 0.15);
+  --vessel-preliminary: #eab308;
+  --vessel-preliminary-dim: rgba(234, 179, 8, 0.15);
+  --vessel-negative: #ef4444;
+  --vessel-negative-dim: rgba(239, 68, 68, 0.15);
+  --vessel-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --vessel-font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--vessel-bg-primary);
+  font-family: var(--vessel-font-body);
+  color: var(--vessel-text-primary);
+}
+
+/* --- Root container --- */
+
+.vessel-root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+}
+
+.vessel-root svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- SVG text defaults --- */
+
+.vessel-root text {
+  font-family: var(--vessel-font-body);
+  fill: var(--vessel-text-secondary);
+  user-select: none;
+}
+
+.vessel-root text.vessel-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  fill: var(--vessel-text-dim);
+}
+
+.vessel-root text.vessel-value {
+  font-family: var(--vessel-font-mono);
+  font-size: 11px;
+  fill: var(--vessel-text-primary);
+}
+
+.vessel-root text.vessel-deck-title {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  fill: var(--vessel-text-dim);
+}
+
+/* --- Station animations --- */
+
+@keyframes vessel-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes vessel-pulse-slow {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.45; }
+}
+
+@keyframes vessel-scale-in {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+@keyframes vessel-flash-strong {
+  0% { fill: var(--vessel-strong); }
+  100% { fill: var(--vessel-bg-card); }
+}
+
+@keyframes vessel-flash-accent {
+  0% { fill: var(--vessel-accent); }
+  100% { fill: var(--vessel-bg-card); }
+}
+
+.vessel-station--active .vessel-station-bg {
+  fill: var(--vessel-accent-glow);
+  animation: vessel-pulse 2s ease-in-out infinite;
+}
+
+.vessel-station--idle .vessel-station-bg {
+  fill: var(--vessel-bg-card);
+}
+
+.vessel-station--complete-finding .vessel-station-bg {
+  animation: vessel-flash-strong 0.4s ease-out forwards;
+}
+
+.vessel-station--complete .vessel-station-bg {
+  animation: vessel-flash-accent 0.4s ease-out forwards;
+}
+
+/* Station initials */
+.vessel-station-initials {
+  font-family: var(--vessel-font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  fill: var(--vessel-accent);
+  text-anchor: middle;
+  dominant-baseline: central;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.vessel-station--active .vessel-station-initials {
+  opacity: 1;
+}
+
+/* --- Orb --- */
+
+.vessel-orb {
+  transition: fill 0.3s;
+}
+
+.vessel-orb--active {
+  fill: var(--vessel-accent);
+  animation: vessel-pulse 2s ease-in-out infinite;
+}
+
+.vessel-orb--idle {
+  fill: var(--vessel-accent-dim);
+  opacity: 0.4;
+  animation: vessel-pulse-slow 4s ease-in-out infinite;
+}
+
+.vessel-orb--error {
+  fill: var(--vessel-negative);
+  animation: vessel-pulse 1.5s ease-in-out infinite;
+}
+
+/* --- Activity feed --- */
+
+.vessel-feed-line {
+  font-family: var(--vessel-font-mono);
+  font-size: 9px;
+  fill: var(--vessel-text-secondary);
+}
+
+/* --- Finding squares --- */
+
+.vessel-finding-square {
+  transform-origin: center;
+}
+
+.vessel-finding-square--new {
+  animation: vessel-scale-in 0.2s ease-out forwards;
+}
+
+/* --- Pipeline stage nodes --- */
+
+.vessel-pipeline-node--active circle {
+  fill: var(--vessel-accent);
+}
+
+.vessel-pipeline-node--completed circle {
+  fill: var(--vessel-strong);
+  opacity: 0.5;
+}
+
+.vessel-pipeline-node--pending circle {
+  fill: none;
+  stroke: var(--vessel-border);
+  stroke-width: 1;
+}
+
+/* --- Health bars --- */
+
+.vessel-health-bar-bg {
+  fill: var(--vessel-bg-card);
+  rx: 2;
+}
+
+.vessel-health-bar-fill {
+  rx: 2;
+  transition: width 0.5s ease;
+}
+
+.vessel-health-bar-fill--healthy { fill: var(--vessel-strong); }
+.vessel-health-bar-fill--degraded { fill: var(--vessel-preliminary); }
+.vessel-health-bar-fill--failed { fill: var(--vessel-negative); }
+
+/* --- Compass --- */
+
+.vessel-compass-needle {
+  transition: transform 0.8s ease-in-out;
+  transform-origin: center;
+}
+
+/* --- Tooltip --- */
+
+.vessel-tooltip {
+  position: absolute;
+  display: none;
+  background: var(--vessel-bg-card);
+  border: 1px solid var(--vessel-border-accent);
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-family: var(--vessel-font-mono);
+  color: var(--vessel-text-primary);
+  pointer-events: none;
+  z-index: 50;
+  max-width: 240px;
+  line-height: 1.4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.vessel-tooltip--visible {
+  display: block;
+}
+
+.vessel-tooltip-tier {
+  display: inline-block;
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-left: 4px;
+}
+
+.vessel-tooltip-tier--STRONG { background: var(--vessel-strong-dim); color: var(--vessel-strong); }
+.vessel-tooltip-tier--PRELIMINARY { background: var(--vessel-preliminary-dim); color: var(--vessel-preliminary); }
+.vessel-tooltip-tier--NEGATIVE { background: var(--vessel-negative-dim); color: var(--vessel-negative); }
+.vessel-tooltip-tier--TECHNICAL { background: var(--vessel-accent-glow); color: var(--vessel-accent); }
+
+/* --- Info panel --- */
+
+.vessel-info-panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--vessel-bg-card);
+  border-top: 1px solid var(--vessel-border-accent);
+  padding: 8px 12px;
+  font-size: 11px;
+  font-family: var(--vessel-font-mono);
+  color: var(--vessel-text-secondary);
+  display: none;
+  max-height: 100px;
+  overflow-y: auto;
+  z-index: 40;
+}
+
+.vessel-info-panel--visible {
+  display: block;
+}
+
+.vessel-info-panel-entry {
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(42, 42, 58, 0.5);
+}
+
+.vessel-info-panel-entry:last-child {
+  border-bottom: none;
+}
+
+.vessel-info-panel-close {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  cursor: pointer;
+  color: var(--vessel-text-dim);
+  font-size: 14px;
+  background: none;
+  border: none;
+  font-family: var(--vessel-font-mono);
+}
+
+/* --- Overlay (reconnecting) --- */
+
+.vessel-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--vessel-font-mono);
+  font-size: 13px;
+  color: var(--vessel-text-dim);
+  z-index: 60;
+}
+
+.vessel-overlay--hidden {
+  display: none;
+}
+
+/* --- Offline screen --- */
+
+.vessel-offline-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--vessel-text-dim);
+  font-style: italic;
+  padding: 2rem;
+  z-index: 55;
+}
+
+.vessel-offline-screen--hidden {
+  display: none;
+}
+
+.vessel-offline-ts {
+  font-size: 12px;
+  margin-top: 8px;
+  font-family: var(--vessel-font-mono);
+}
+
+.vessel-offline-sub {
+  font-size: 11px;
+  margin-top: 4px;
+  opacity: 0.6;
+}
+
+/* --- Deck tabs (mobile compact mode) --- */
+
+.vessel-deck-tabs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 2px;
+  padding: 4px;
+  background: var(--vessel-bg-secondary);
+  border-bottom: 1px solid var(--vessel-border);
+  z-index: 30;
+}
+
+.vessel-deck-tabs--hidden {
+  display: none;
+}
+
+.vessel-deck-tab {
+  flex: 1;
+  padding: 4px 0;
+  border: 1px solid var(--vessel-border);
+  border-radius: 3px;
+  background: var(--vessel-bg-card);
+  color: var(--vessel-text-dim);
+  font-family: var(--vessel-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.vessel-deck-tab:hover {
+  background: var(--vessel-bg-card-hover);
+  color: var(--vessel-text-secondary);
+}
+
+.vessel-deck-tab--active {
+  background: var(--vessel-accent-glow);
+  color: var(--vessel-accent);
+  border-color: var(--vessel-border-accent);
+}
+
+/* --- Particles (data flow) --- */
+
+.vessel-particle {
+  pointer-events: none;
+}
+
+/* --- Interactive cursor --- */
+
+.vessel-interactive {
+  cursor: pointer;
+}
+
+.vessel-interactive:hover .vessel-station-bg {
+  stroke: var(--vessel-accent);
+  stroke-width: 1;
+}
+
+/* --- Morocco outline inset --- */
+
+.vessel-morocco-outline {
+  fill: none;
+  stroke: var(--vessel-border);
+  stroke-width: 0.5;
+}
+
+.vessel-tile-highlight {
+  fill: var(--vessel-accent-glow);
+  stroke: var(--vessel-accent);
+  stroke-width: 1;
+}
+
+/* --- Sparkline --- */
+
+.vessel-sparkline-path {
+  fill: none;
+  stroke: var(--vessel-accent);
+  stroke-width: 1.5;
+}
+
+.vessel-sparkline-area {
+  fill: var(--vessel-accent-glow);
+}

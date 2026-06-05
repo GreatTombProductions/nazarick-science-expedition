@@ -1,0 +1,1 @@
+[{"finding_id":"449 Sentinel-2 L2A tiles found across 20","passed_structural":true,"missing_fields":[],"classification":"NOVEL","classification_reason":"No reference data for comparison. Internal consistency only.","agreement_metrics":{},"tier":"PRELIMINARY","enters_library":true,"flags":["awaiting-reference-data","novel"],"timestamp":"2026-06-05T00:29:41.416584+00:00"}]

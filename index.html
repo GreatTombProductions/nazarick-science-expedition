@@ -19,6 +19,7 @@
       <a href="/" class="site-title"><span>NSE</span> Nazarick Science Expedition</a>
       <nav>
         <a href="/" class="active">Mission Briefing</a>
+        <a href="activity/">Comm Feed</a>
         <a href="findings/">Expedition Findings</a>
         <a href="crew/">Golem Roster</a>
         <a href="methodology/">Instruments</a>
@@ -52,7 +53,7 @@
             <div class="label">Validated</div>
           </div>
           <div class="hero-stat">
-            <div class="value" id="stat-agents">15</div>
+            <div class="value" id="stat-agents">12</div>
             <div class="label">Golems Active</div>
           </div>
         </div>
@@ -60,10 +61,7 @@
 
       <!-- Vessel Embed -->
       <div class="vessel-container" id="vessel-section">
-        <div class="vessel-offline" id="vessel-fallback">
-          <p>Research Vessel <em>Agnostophage</em> is being assembled.</p>
-          <p class="status">The feeder on unknowing launches soon. The static archive will persist here once operations begin.</p>
-        </div>
+        <iframe src="vessel/" style="width:100%; height:440px; border:none; border-radius:8px; background:#0a0e1a;" title="Research Vessel Agnostophage — Cross-Section Visualization"></iframe>
       </div>
 
       <!-- Current Season -->
@@ -90,7 +88,7 @@
         <div class="card">
           <h3>AI Agents, Not AI Hype</h3>
           <p>
-            15 specialized agents running on Google's Gemini 2.5 Flash.
+            12 specialized agents running on DeepSeek V4-Flash.
             Each agent has a distinct role &mdash; from chief geologist to validation officer.
             A deterministic orchestrator tells them what to do. They don't hallucinate their way through; they call tools.
           </p>
@@ -104,6 +102,20 @@
           </p>
         </div>
       </div>
+
+      <!-- Comm Feed Teaser -->
+      <div class="section-header mt-3">
+        <h2>Comm Feed</h2>
+        <p>Latest communications from the golem crew.</p>
+      </div>
+      <div class="feed-teaser" id="feed-teaser">
+        <div class="feed-empty" id="feed-teaser-empty">
+          <p class="dim text-center" style="padding: 1.5rem 0;">
+            The comm feed will populate when the expedition begins operations.
+          </p>
+        </div>
+      </div>
+      <a href="activity/" class="feed-teaser-link" id="feed-teaser-link" style="display:none;">View full comm feed &rarr;</a>
 
       <!-- Latest Findings Preview -->
       <div class="section-header mt-3">
